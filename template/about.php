@@ -6,8 +6,8 @@
 	<div class="mdui-card-content">
 		<div class="mdui-typo">
 			<? if (!empty($about)) {
-				echo $config['site']['about'];
-			}else{
+				echo $about;
+			} else {
 				echo "暂无内容。";
 			} ?>
 		</div>
