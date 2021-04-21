@@ -23,9 +23,9 @@
 			}
 		</script>
 		<!--
-		<button class='mdui-btn mdui-ripple' onclick="copyText('<?php echo (isHTTPS() ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . "/media/" . $media['id']; ?>', function(){mdui.snackbar({message: '复制本页地址成功'})})" style='margin-left:8px;'>复制本页地址</button>
+		<button class='mdui-btn mdui-ripple' onclick="copyText('<?php echo (isHTTPS() ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . "/media/" . $media['now']['id']; ?>', function(){mdui.snackbar({message: '复制本页地址成功'})})" style='margin-left:8px;'>复制本页地址</button>
 		-->
-		<button class='mdui-btn mdui-ripple' onclick="copyText('<?php echo $media['url']; ?>', function(){mdui.snackbar({message: '复制视频地址成功'})})">复制视频地址</button>
+		<button class='mdui-btn mdui-ripple' onclick="copyText('<?php echo $media['now']['url']; ?>', function(){mdui.snackbar({message: '复制视频地址成功'})})">复制视频地址</button>
 		<p class="mdui-float-right" style="margin-top:10px;margin-bottom:10px;padding-left:16px;padding-right:24px;"><?php echo $media['now']['views'] . " 次观看" ?></p>
 	</div>
 	<div class='mdui-card-actions' style='padding-top:4px;'>
