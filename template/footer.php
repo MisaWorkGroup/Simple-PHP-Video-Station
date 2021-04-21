@@ -1,15 +1,13 @@
 <?php if (!defined('_IN_STATION_')) die('Access Denied');
 	if ($global['page']['getFullPage']) {
-		include 'template/submitMessageDialog.php';
-		if (!empty($global['site']['footer'])){ ?>
-			<div class="doc-footer-nav mdui-color-theme" style="height:150px;">
-				<div class="mdui-container" style="height:100%;">
-					<div class="mdui-row" style="height:100%;">
-						<? echo $global['site']['footer']; ?>
-					</div>
-				</div>
+		include 'template/submitMessageDialog.php'; ?>
+		<div class="doc-footer-nav mdui-color-theme" style="height:auto">
+			<div class="mdui-typo" style="padding:8px">
+				<? if ($global['site']['footer']) echo $global['site']['footer']; ?>
+				<center><p>Copyright©2021 <? echo $global['site']['name']; ?><br>
+					Powered by <a href="https://github.com/MisaLiu/Simple-PHP-Video-Station" target="_blank">MisaLiu</a></p></center>
 			</div>
-	<? } ?>
+		</div>
 
 <div class="mdui-dialog mdui-dialog-prompt" style="display:none;" id="jumpMsgPage">
 	<div class="mdui-dialog-title">页面跳转</div>
