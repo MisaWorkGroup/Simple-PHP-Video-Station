@@ -30,9 +30,9 @@
 		<div class="mdui-textfield mdui-textfield-floating-label" style="padding-top:0px;">
 			<i class="mdui-icon material-icons">&#xe0d8;</i>
 			<label class="mdui-textfield-label">留言内容</label>
-			<textarea id="fp_text" class="mdui-textfield-input" maxlength="120" required></textarea>
+			<textarea id="fp_text" class="mdui-textfield-input" maxlength="<? echo $config['board']['msgLength']; ?>" required></textarea>
 			<div class="mdui-textfield-error">请输入留言内容</div>
-			<div class="mdui-textfield-helper">支持 Markdown 语法，禁止发布广告及违法信息</div>
+			<div class="mdui-textfield-helper">支持 Markdown 语法</div>
 		</div>
 
 		<button onclick="submitFormFast();" class="mdui-btn mdui-ripple mdui-btn-dense mdui-text-color-theme-accent mdui-float-right" style="margin:0">提交</button>
