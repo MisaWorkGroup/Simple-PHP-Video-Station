@@ -32,4 +32,5 @@
 - [DIYgod/DPlayer](https://github.com/DIYgod/DPlayer)
 - [ThingEngineer/PHP-MySQLi-Database-Class](https://github.com/ThingEngineer/PHP-MySQLi-Database-Class)
 - [zdhxiong/mdui](https://github.com/zdhxiong/mdui)
+- [erusev/parsedown](https://github.com/erusev/parsedown)
 - [gravatar.bytecho.net（国内 Gravatar 镜像）](https://gravatar.bytecho.net/)
