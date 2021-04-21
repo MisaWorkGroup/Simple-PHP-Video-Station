@@ -5,7 +5,7 @@
 	
 	$config['db']['host'] = 'localhost'; // 设置数据库所在主机
 	$config['db']['user'] = 'video'; // 设置数据库用户名
-	$config['db']['pw'] = ''; // 设置数据库密码
+	$config['db']['pw'] = 'video'; // 设置数据库密码
 	$config['db']['form'] = 'video'; // 设置数据库表名
 	$config['db']['port'] = 3306; // 设置数据库的连接端口
 	$config['db']['prefix'] = ''; // 设置数据库表名的前缀
@@ -19,9 +19,9 @@
 	$config['user']['hashLenth'] = 8; // 设置用户随机标识码的长度
 	$config['user']['hashEffectiveTime'] = 120; // 设置用户随机标识码的有效期，单位为秒
 	
-	$config['player']['damakuAPI'] = '';
-	$config['player']['damakuPrefix'] = '';
-	$config['player']['userPrefix'] = '';
+	$config['player']['damakuAPI'] = ''; // 设置 DPlayer 的弹幕 API，不想启用弹幕功能请留空。关于 DPlayer 详见 https://github.com/DIYgod/DPlayer
+	$config['player']['damakuPrefix'] = ''; // 设置弹幕 API 的视频标识前缀
+	$config['player']['userPrefix'] = ''; // 设置弹幕 API 的用户标识前缀
 	
 	$global = array();
 	
