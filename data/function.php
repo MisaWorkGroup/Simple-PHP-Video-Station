@@ -31,4 +31,21 @@
 		
 		return $rand_string;
 	}
+	
+	function new_strlen($str) {
+		$len = strlen($str);
+		$i = 0;
+		$j = 0;
+		
+		while ($i < $len) {
+			if (preg_match('/^[' . chr(0xa1) . '-' . chr(0xf9) . ']+$/', $str[$i])) {
+				$i += 3;
+			} else {
+				$i += 1;
+			}
+			$j++;
+		}
+		
+		return $j;
+	}
 ?>
