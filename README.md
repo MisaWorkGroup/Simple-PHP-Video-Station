@@ -13,7 +13,7 @@
 
 ## 安装
 
-1. 下载本仓库文件
+1. 下载本仓库 `[Release](https://github.com/MisaLiu/Simple-PHP-Video-Station/releases)`，上传至服务器并解压
 2. 将自带的示例数据库 `video.sql` 导入至你的数据库中
 3. 将自带的伪静态规则 `Rewrite-Apache/Nginx.conf` 设置在你的服务器中
 4. 在 `data/Config.php` 中设置站点数据库等
