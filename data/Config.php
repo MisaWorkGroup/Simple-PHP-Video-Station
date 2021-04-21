@@ -10,7 +10,7 @@
 	$config['db']['port'] = 3306; // 设置数据库的连接端口
 	$config['db']['prefix'] = ''; // 设置数据库表名的前缀
 	
-	$config['page']['enablePjax'] = true;
+	$config['page']['enablePjax'] = true; // 如果你在你的 template 中启用了 pjax 无刷加载，请设置为 true，否则请设置为 false
 	
 	$config['board']['msgPerPage'] = 10; // 设置留言板每页显示多少条留言
 	$config['board']['defaultState'] = 1; // 发布留言时留言的默认状态。-1 = 垃圾留言，0 = 审核中的留言，1 = 正常显示的留言。请在数据库中对单条留言进行设置
