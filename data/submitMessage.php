@@ -1,19 +1,5 @@
 <?php
 
-/*
-	报错一览：
-
-	-999  请求无效      一般是用户 session 验证失败
-	-100  操作过于频繁  减缓操作间隔时长或修改冷却时间后再试
-	-20   用户名为空
-	-30   邮箱为空
-	-40   网站为空      一般不会强行请求这个
-	-50   留言为空
-
-	>=0   提交成功
-
-*/
-
 define('_IN_STATION_', true);
 
 require_once('Config.php');
@@ -54,6 +40,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
 						
 						if (empty($value['message'])) {
 							echo('-50');
+							$_SESSION['lastSubTime'] = time();
+							die();
+						}
+						
+						if (new_strlen($value['message']) > $config['board']['msgLength']) {
+							echo('-60');
 							$_SESSION['lastSubTime'] = time();
 							die();
 						}
