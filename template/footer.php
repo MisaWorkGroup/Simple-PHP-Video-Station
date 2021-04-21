@@ -9,6 +9,8 @@
 			</div>
 		</div>
 
+<a href="" style="display:none" id="JumpLink">Jump</a>
+
 <div class="mdui-dialog mdui-dialog-prompt" style="display:none;" id="jumpMsgPage">
 	<div class="mdui-dialog-title">页面跳转</div>
 	<div class="mdui-dialog-content" style="height: 92px;">
