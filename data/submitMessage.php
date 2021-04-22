@@ -18,7 +18,7 @@
 		die('-100');
 	
 	if (empty($_SESSION['user']))
-	die('-999');
+		die('-999');
 	
 	if (strlen($_SESSION['user']) !== $config['user']['hashLenth'])
 		die('-999');
