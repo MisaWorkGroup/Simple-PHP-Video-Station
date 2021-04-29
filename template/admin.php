@@ -27,6 +27,10 @@
 	<br>
 <? } ?>
 
+<div class="mdui-tab" mdui-tab>
+	>
+</div>
+
 <div class="mdui-card mdui-hoverable">
 	<div class="mdui-card-content">
 		<div class="mdui-typo" style="position:relative;top:-20px;">
