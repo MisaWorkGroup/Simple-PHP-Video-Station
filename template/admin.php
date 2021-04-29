@@ -35,7 +35,12 @@
 <div id="global" class="mdui-p-a-2">
 	<div class="mdui-textfield">
 		<label class="mdui-textfield-label">站点名称</label>
-		<input class="mdui-textfield-input" id="siteName" type="text" />
+		<input class="mdui-textfield-input" id="siteName" type="text" required/>
+	</div>
+	
+	<div class="mdui-textfield">
+		<label class="mdui-textfield-label">站点描述</label>
+		<input class="mdui-textfield-input" id="siteDesc" type="text" placeholder="用于 SEO 优化，可不填" />
 	</div>
 </div>
 
