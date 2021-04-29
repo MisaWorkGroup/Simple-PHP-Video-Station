@@ -45,7 +45,12 @@
 	
 	<div class="mdui-textfield">
 		<label class="mdui-textfield-label">站点描述</label>
-		<input class="mdui-textfield-input" id="siteDesc" type="text" value="<? echo $admin['description']?>" placeholder="用于 SEO 优化，可不填" />
+		<input class="mdui-textfield-input" id="siteDesc" type="text" value="<? echo $admin['description']; ?>" placeholder="用于 SEO 优化，可不填" />
+	</div>
+	
+	<div class="mdui-textfield">
+		<label class="mdui-textfield-label">站点作者</label>
+		<input class="mdui-textfield-input" id="siteAuth" type="text" value="<? echo $admin['author']; ?>" placeholder="用于 SEO 优化，可不填" />
 	</div>
 </div>
 
