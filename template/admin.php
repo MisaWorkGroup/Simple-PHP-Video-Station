@@ -32,6 +32,13 @@
 	<a href="#media" class="mdui-ripple">媒体设置</a>
 </div>
 
+<div id="global" class="mdui-p-a-2">
+	<div class="mdui-textfield">
+		<label class="mdui-textfield-label">站点名称</label>
+		<input class="mdui-textfield-input" id="siteName" type="text" />
+	</div>
+</div>
+
 <div class="mdui-card mdui-hoverable">
 	<div class="mdui-card-content">
 		<div class="mdui-typo" style="position:relative;top:-20px;">
