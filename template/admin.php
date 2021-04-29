@@ -28,7 +28,8 @@
 <? } ?>
 
 <div class="mdui-tab" mdui-tab>
-	>
+	<a href="#global" class="mdui-ripple">全局设置</a>
+	<a href="#media" class="mdui-ripple">媒体设置</a>
 </div>
 
 <div class="mdui-card mdui-hoverable">
