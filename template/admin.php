@@ -39,6 +39,11 @@
 	</div>
 	
 	<div class="mdui-textfield">
+		<label class="mdui-textfield-label">站点关键词</label>
+		<input class="mdui-textfield-input" id="siteKeyw" type="text" placeholder="用于 SEO 优化，多个请用,隔开，可不填" />
+	</div>
+	
+	<div class="mdui-textfield">
 		<label class="mdui-textfield-label">站点描述</label>
 		<input class="mdui-textfield-input" id="siteDesc" type="text" placeholder="用于 SEO 优化，可不填" />
 	</div>
