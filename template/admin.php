@@ -65,6 +65,8 @@
 	
 	<? if ($admin['isAdmin']) { ?>
 		<button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent" onclick="submitGlobalChanges()">提交修改</button>
+	<? } else { ?>
+		<div class="mdui-text-color-red mdui-text-right">您还没有登录</div>
 	<? } ?>
 </div>
 
