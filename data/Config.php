@@ -26,7 +26,7 @@
 	
 	$config['admin']['user'] = 'admin'; // 设置管理后台的账号
 	$config['admin']['password'] = 'admin'; // 设置管理后台的密码。我们推荐使用密码的 md5 值来存储
-	$config['admin']['ismd5'] = false; // 如果 Password 是用
+	$config['admin']['ismd5'] = false; // 如果 Password 是用 md5 存储的，请设置为 true
 	
 	$global = array();
 	
