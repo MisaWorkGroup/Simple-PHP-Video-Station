@@ -52,6 +52,11 @@
 		<label class="mdui-textfield-label">站点作者</label>
 		<input class="mdui-textfield-input" id="siteAuth" type="text" value="<? echo $admin['author']; ?>" placeholder="用于 SEO 优化，可不填" />
 	</div>
+	
+	</div class="mdui-textfield">
+		<label class="mdui-textfield-label">站点关于</label>
+		<input class="mdui-textfield-input" id="siteAbou" type="text" value="<? echo $admin['about']; ?>" placeholder="站点关于页内容，可不填" />
+	</div>
 </div>
 
 <div class="mdui-card mdui-hoverable">
