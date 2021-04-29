@@ -35,17 +35,17 @@
 <div id="global" class="mdui-p-a-2">
 	<div class="mdui-textfield">
 		<label class="mdui-textfield-label">站点名称</label>
-		<input class="mdui-textfield-input" id="siteName" type="text" required/>
+		<input class="mdui-textfield-input" id="siteName" type="text" value="<? echo $admin['name']; ?>" required/>
 	</div>
 	
 	<div class="mdui-textfield">
 		<label class="mdui-textfield-label">站点关键词</label>
-		<input class="mdui-textfield-input" id="siteKeyw" type="text" placeholder="用于 SEO 优化，多个请用,隔开，可不填" />
+		<input class="mdui-textfield-input" id="siteKeyw" type="text" value="<? echo $admin['keywords']; ?>" placeholder="用于 SEO 优化，多个请用,隔开，可不填" />
 	</div>
 	
 	<div class="mdui-textfield">
 		<label class="mdui-textfield-label">站点描述</label>
-		<input class="mdui-textfield-input" id="siteDesc" type="text" placeholder="用于 SEO 优化，可不填" />
+		<input class="mdui-textfield-input" id="siteDesc" type="text" value="<? echo $admin['description']?>" placeholder="用于 SEO 优化，可不填" />
 	</div>
 </div>
 
