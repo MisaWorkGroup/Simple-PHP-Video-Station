@@ -55,7 +55,12 @@
 	
 	<div class="mdui-textfield">
 		<label class="mdui-textfield-label">站点关于</label>
-		<input class="mdui-textfield-input" id="siteAbou" type="text" value="<? echo $admin['about']; ?>" placeholder="站点关于页内容，可不填" />
+		<input class="mdui-textfield-input" id="siteAbou" type="text" value="<? echo $admin['about']; ?>" placeholder="站点关于页内容，支持 HTML，可不填" />
+	</div>
+	
+	<div class="mdui-textfield">
+		<label class="mdui-textfield-label">站点页脚</label>
+		<textarea class="mdui-textfield-input" id="siteFoot" placeholder="支持 HTML，可不填"><? echo $admin['footer']; ?></textarea>
 	</div>
 </div>
 
