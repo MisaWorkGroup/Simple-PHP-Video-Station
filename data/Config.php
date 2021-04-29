@@ -24,6 +24,9 @@
 	$config['player']['damakuPrefix'] = ''; // 设置弹幕 API 的视频标识前缀
 	$config['player']['userPrefix'] = ''; // 设置弹幕 API 的用户标识前缀
 	
+	$config['admin']['user'] = 'admin'; // 设置管理后台的账号
+	$config['admin']['password'] = 'admin'; // 设置管理后台的
+	
 	$global = array();
 	
 ?>
