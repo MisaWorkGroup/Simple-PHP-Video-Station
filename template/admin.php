@@ -62,6 +62,7 @@
 		<label class="mdui-textfield-label">站点页脚</label>
 		<textarea class="mdui-textfield-input" id="siteFoot" placeholder="支持 HTML，可不填"><? echo $admin['footer']; ?></textarea>
 	</div>
+	
 	<? if ($admin['isAdmin']) { ?>
 		<button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent" onclick="submitGlobalChanges()">提交修改</button>
 	<? } ?>
