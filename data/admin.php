@@ -60,5 +60,21 @@
 		else
 			echo 'failed';
 		
+	} elseif ($_POST['type'] == 'media') {
+		if (!$_SESSION['isAdmin'])
+			die('-500');
+		
+		if (empty($_POST['id']) || empty($_POST['name']) || empty($_POST['url']) || empty($_POST['do']))
+			die('-999');
+		
+		if ($_POST['do'] == 1) {
+			
+		} elseif ($_POST['do'] == 2) {
+			
+		}
+		
+	} else {
+		die();
+		 
 	}
 ?>
