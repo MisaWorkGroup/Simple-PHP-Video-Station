@@ -54,6 +54,7 @@
 		if (empty($_POST['name']) || empty($_POST['content']))
 			die('-999');
 		
-		
+		$db->where('config', htmlspecialchars(stripslashes(trim($_POST['name']))));
+		if ($db->updata('config', Array('value' => $_POST)
 	}
 ?>
