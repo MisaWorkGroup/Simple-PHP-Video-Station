@@ -38,6 +38,9 @@
 				$_SESSION['isAdmin'] == true;
 				echo '0';
 				
+			} else {
+				die('-50');
+			
 			}
 		} else {
 			die('-50');
