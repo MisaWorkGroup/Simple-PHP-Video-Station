@@ -68,9 +68,18 @@
 			die('-999');
 		
 		if ($_POST['do'] == 1) {
+			$value = Array(
+				'name' => htmlspecialchars(stripslashes(trim($_POST['name']))),
+				'url' => htmlspecialchars(stripslashes(trim($_POST['url'])))
+			);
+			if ($db->insert('data', $value))
+				echo 'success';
+			else
+				echo 'failed';
 			
 		} elseif ($_POST['do'] == 2) {
-			
+			$db->where('name', htmlspecialchars(stripslashes(trim($_POST['name']))));
+			if ($db->updata('data', Array('url' => htmlspecialchars(stripslashes(trim($_POST['url']))))))
 		}
 		
 	} else {
