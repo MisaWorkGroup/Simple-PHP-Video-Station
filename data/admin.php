@@ -29,10 +29,16 @@
 		if (empty($_POST['user']) || empty($_POST['password') || $_SESSION['user'] != $_POST['userhash'])
 			die('-999');
 		
-		if ($_POST['user'] == $config['admin']['user'] && $_POST['password'] == $config['admin']['password'] && $_POST['userhash'] == $_SESSION['user']) {
-			$_SESSION['isAdmin'] == true;
-			echo '0';
-			
+		if ($_POST['user'] == $config['admin']['user'] && $_POST['userhash'] == $_SESSION['user']) {
+			if ($config['admin']['ismd5'] && $_POST['password'] == md5($config['admin']['password'], false)) {
+				$_SESSION['isAdmin'] == true;
+				echo '0';
+				
+			} elseif (!$config['admin']['ismd5'] && $_POST['password'] == $config['admin']['password']) {
+				$_SESSION['isAdmin'] == true;
+				echo '0';
+				
+			}
 		} else {
 			die('-50');
 		
