@@ -46,5 +46,9 @@
 			die('-50');
 		
 		}
+		
+	} elseif ($_POST['type'] == 'global') {
+		if (!$_SESSION['isAdmin'])
+			die('-500');
 	}
 ?>
