@@ -50,5 +50,10 @@
 	} elseif ($_POST['type'] == 'global') {
 		if (!$_SESSION['isAdmin'])
 			die('-500');
+		
+		if (empty($_POST['name']) || empty($_POST['content']))
+			die('-999');
+		
+		
 	}
 ?>
