@@ -80,6 +80,10 @@
 		} elseif ($_POST['do'] == 2) {
 			$db->where('name', htmlspecialchars(stripslashes(trim($_POST['name']))));
 			if ($db->updata('data', Array('url' => htmlspecialchars(stripslashes(trim($_POST['url']))))))
+				echo 'success';
+			else
+				echo 'failed';
+			
 		}
 		
 	} else {
