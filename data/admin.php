@@ -13,12 +13,12 @@
 	if ($_SERVER['REQUEST_METHOD'] != "POST")
 		die();
 	
+	if (empty($lastSubTime) || (time() - $lastSubTime) < $breakTime) 
+		die('-100');
+	
 	if ($_POST['type'] == 'login') {
 		if ($_SESSION['isAdmin'])
 			die('-500');
-		
-		if (empty($lastSubTime) || (time() - $lastSubTime) < $breakTime) 
-			die('-100');
 		
 		if (empty($_SESSION['user']))
 			die('-999');
