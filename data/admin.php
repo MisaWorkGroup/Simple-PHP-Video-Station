@@ -55,6 +55,9 @@
 			die('-999');
 		
 		$db->where('config', htmlspecialchars(stripslashes(trim($_POST['name']))));
-		if ($db->updata('config', Array('value' => $_POST)
+		if ($db->updata('config', Array('value' => $_POST['content']))
+			echo 'success';
+		else
+			echo 'failed';
 	}
 ?>
