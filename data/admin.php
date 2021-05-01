@@ -21,21 +21,21 @@
 			die('-500');
 		
 		if (empty($_SESSION['user']))
-			die('-999');
+			die('-200');
 		
 		if (strlen($_SESSION['user']) !== $config['user']['hashLenth'])
-			die('-999');
+			die('-201');
 		
-		if (empty($_POST['user']) || empty($_POST['password') || $_SESSION['user'] != $_POST['userhash'])
-			die('-999');
+		if (empty($_POST['user']) || empty($_POST['password']) || $_SESSION['user'] != $_POST['userhash'])
+			die('-202');
 		
 		if ($_POST['user'] == $config['admin']['user'] && $_POST['userhash'] == $_SESSION['user']) {
 			if ($config['admin']['ismd5'] && $_POST['password'] == md5($config['admin']['password'], false)) {
-				$_SESSION['isAdmin'] == true;
+				$_SESSION['isAdmin'] = true;
 				echo '0';
 				
 			} elseif (!$config['admin']['ismd5'] && $_POST['password'] == $config['admin']['password']) {
-				$_SESSION['isAdmin'] == true;
+				$_SESSION['isAdmin'] = true;
 				echo '0';
 				
 			} else {
@@ -55,7 +55,7 @@
 			die('-999');
 		
 		$db->where('config', htmlspecialchars(stripslashes(trim($_POST['name']))));
-		if ($db->updata('config', Array('value' => $_POST['content']))
+		if ($db->updata('config', Array('value' => $_POST['content'])))
 			echo 'success';
 		else
 			echo 'failed';
