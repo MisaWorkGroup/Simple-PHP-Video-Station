@@ -1,15 +1,15 @@
 <?php if (!defined('_IN_STATION_')) die('Access Denied');
 	if ($global['page']['getFullPage']) {
 		include 'template/submitMessageDialog.php'; ?>
-		<div class="doc-footer-nav mdui-color-theme" style="height:auto">
-			<div class="mdui-typo" style="padding:8px">
-				<? if ($global['site']['footer']) echo $global['site']['footer']; ?>
-				<center><p>Copyright©2021 <? echo $global['site']['name']; ?><br>
-					Powered by <a href="https://github.com/MisaLiu/Simple-PHP-Video-Station" target="_blank">MisaLiu</a></p></center>
-			</div>
-		</div>
+<div class="doc-footer-nav mdui-color-theme" style="height:auto">
+	<div class="mdui-typo" style="padding:8px">
+		<? if (!empty($global['site']['footer'])) echo $global['site']['footer']; ?>
+		<center><p>Copyright©2021 <? echo $global['site']['name']; ?><br>
+			Powered by <a href="https://github.com/MisaLiu/Simple-PHP-Video-Station" target="_blank">MisaLiu</a></p></center>
+	</div>
+</div>
 
-<a href="" style="display:none" id="JumpLink">Jump</a>
+<a href="" id="JumpLink" style="display:none">Jump</a>
 
 <div class="mdui-dialog mdui-dialog-prompt" style="display:none;" id="jumpMsgPage">
 	<div class="mdui-dialog-title">页面跳转</div>
@@ -41,7 +41,7 @@
 </div>
 
 <script src="template/js/pjax.js"></script>
-<script src="template/js/preload.js?202104210011" type="text/javascript"></script>
+<script src="template/js/preload.js?202105012102" type="text/javascript"></script>
 <?php include "template/footerJs.php";} ?>
 </body>
 </html>
