@@ -4,11 +4,10 @@
 <h1 id="title"><? echo $global['site']['name']; ?></h1>
 
 <? if (!$admin['isAdmin']) { ?>
-	<div class='mdui-card mdui-hoverable' style="padding-bottom:8px;">
-		<div class='mdui-card-content' style="padding-top:0;padding-bottom:0;">
-			<p style="margin-bottom:4px;">您还未登录，请立即登录。登录后才可进行管理操作。</p>
-		</div>
-		<div class="mdui-card-action" style="padding:0 8px 8px 8px;padding-bottom:8px;">
+	<div class="mdui-card mdui-hoverable">
+		<div class="mdui-card-content" style="padding-bottom:0">
+			<p style="margin: 0 4px 4px 4px;">您还未登录，请立即登录。登录后才可进行管理操作。</p>
+			
 			<div class="mdui-textfield mdui-textfield-floating-label" style="padding-top:0">
 				<i class="mdui-icon material-icons">account_circle</i>
 				<label class="mdui-textfield-label">管理用户名</label>
@@ -21,9 +20,46 @@
 				<input id="admin_password" class="mdui-textfield-input" type="password" required />
 				<div class="mdui-textfield-error">请输入密码</div>
 			</div>
+		</div>
+		<div class="mdui-card-actions">
 			<button onclick="adminLogin()" class="mdui-btn mdui-ripple mdui-text-color-theme-accent mdui-float-right">登录</button>
 		</div>
 	</div>
+	<script>
+		function adminLogin() {
+			$('#mdui_loading').removeClass('mdui-hidden');
+			mdui.$.showOverlay();
+			
+			mdui.$.ajax({
+				method : 'POST',
+				url : './data/admin.php',
+				data : {
+					type : 'login',
+					user : document.getElementById('admin_account').value,
+					password : document.getElementById('admin_password').value,
+					userhash : userHash
+				},
+				complete : function(xhr, textStatus) {
+					$('#mdui_loading').addClass('mdui-hidden');
+					mdui.$.hideOverlay();
+				},
+				success : function(data, textStatus, xhr) {
+					if (data == '0') {
+						mdui.alert('登录成功', '提示', function() {
+							document.getElementById('JumpLink').href = 'admin.php';
+							document.getElementById('JumpLink').click();
+						});
+					} else {
+						mdui.alert('登录失败，错误码：' + data, '提示');
+					}
+				},
+				error : function(xhr, textStatus) {
+					mdui.alert('登录失败', '提示');
+				}
+			});
+			
+		}
+	</script>
 	<br>
 <? } ?>
 
@@ -55,7 +91,7 @@
 	
 	<div class="mdui-textfield">
 		<label class="mdui-textfield-label">站点关于</label>
-		<input class="mdui-textfield-input" id="siteAbou" type="text" value="<? echo $admin['about']; ?>" placeholder="站点关于页内容，支持 HTML，可不填" />
+		<textarea class="mdui-textfield-input" id="siteAbou" placeholder="站点关于页内容，支持 HTML，可不填"><? echo $admin['about']; ?></textarea>
 	</div>
 	
 	<div class="mdui-textfield">
@@ -63,18 +99,20 @@
 		<textarea class="mdui-textfield-input" id="siteFoot" placeholder="支持 HTML，可不填"><? echo $admin['footer']; ?></textarea>
 	</div>
 	
-	<? if ($admin['isAdmin']) { ?>
-		<button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent" onclick="submitGlobalChanges()">提交修改</button>
-	<? } else { ?>
-		<div class="mdui-text-color-red mdui-text-right">您还没有登录</div>
-	<? } ?>
+	<div class="mdui-card-actions">
+		<? if ($admin['isAdmin']) { ?>
+			<button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent mdui-float-right" onclick="submitGlobalChanges()">提交修改</button>
+		<? } else { ?>
+			<button class="mdui-btn mdui-ripple mdui-text-color-red mdui-float-right">您还没有登录</button>
+		<? } ?>
+	</div>
 </div>
 
 <div id="media" class="mdui-p-a-2">
+	<h1>	站点公告</h1>
 	<div class="mdui-card mdui-hoverable">
 		<div class="mdui-card-content">
-			<div class="mdui-typo" style="position:relative;top:-20px;">
-				<h1>公告板</h1>
+			<div class="mdui-typo">
 				<? if (!empty($admin['notice'])) {
 					 echo $global['site']['notice'];
 				} else { ?>
@@ -82,20 +120,20 @@
 				<? } ?>
 			</div>
 		</div>
-		<? if ($admin['isAdmin']) { ?>
-			<div class="mdui-card-actions">
+		
+		<div class="mdui-card-actions">
+			<? if ($admin['isAdmin']) { ?>
 				<button onclick="changeNotice()" class="mdui-btn mdui-ripple mdui-text-color-theme-accent mdui-float-right">修改公告</button>
-			</div>
-		<? } ?>
+			<? } else { ?>
+				<button class="mdui-btn mdui-ripple mdui-text-color-red mdui-float-right">您还没有登录</button>
+			<? } ?>
+		</div>
 	</div>
 	<br>
-
+	
+	<h1>视频列表</h1>
 	<div class="mdui-card mdui-hoverable">
 		<div class="mdui-card-content">
-			<div class="mdui-typo" style="position:relative;top:-20px;">
-				<h1>视频列表</h1>
-			</div>
-			
 			<div class="mdui-container-fluid" style="padding:0 0 0 0;margin-top:5px;">
 				<div class="mdui-row" style="margin:0 0 0 0;">
 					<? if (isset($admin['videos'])) {
@@ -110,13 +148,20 @@
 				</div>
 			</div>
 		</div>
-		<? if ($admin['isAdmin']) { ?>
-			<div class="mdui-card-actions">
+		
+		<div class="mdui-card-actions">
+			<? if ($admin['isAdmin']) { ?>
 				<button onclick="addMedia()" class="mdui-btn mdui-ripple mdui-text-color-theme-accent mdui-float-right">添加视频</button>
-			</div>
-		<? } ?>
+			<? } else { ?>
+				<button class="mdui-btn mdui-ripple mdui-text-color-red mdui-float-right">您还没有登录</button>
+			<? } ?>
+		</div>
 	</div>
 </div>
+
+<script>
+	var userHash = '<? echo $_SESSION['user']; ?>';
+</script>
 
 </div>
 <br>
