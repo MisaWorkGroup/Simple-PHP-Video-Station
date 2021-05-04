@@ -16,10 +16,9 @@
 1. 下载本仓库最新的 [`Release`](https://github.com/MisaLiu/Simple-PHP-Video-Station/releases)，上传至服务器并解压
 2. 将自带的示例数据库 `video.sql` 导入至你的数据库中
 3. 将自带的伪静态规则 `Rewrite-Apache/Nginx.conf` 设置在你的服务器中
-4. 在 `data/Config.php` 中设置站点数据库等
-5. 在数据库表 `config` 中设置站点名称/公告/页脚等
-6. 在数据库表 `data` 中设置站点的视频列表 *（注：因为一开始是设计给小站点使用的，故没有设计视频列表分页功能，如果需要请提 issue）*
-7. 完成！
+4. 在 `data/Config.php` 中设置站点数据库、管理面板账户等
+5. 在 `你的域名/admin.php` 中设置你的站点相关数据
+6. 完成！
 
 ## 谁在使用？
 
