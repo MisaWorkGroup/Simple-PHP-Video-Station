@@ -20,6 +20,14 @@
 5. 在 `你的域名/admin.php` 中设置你的站点相关数据
 6. 完成！
 
+默认的管理员账号密码：
+```
+Username : admin
+Password : admin
+```
+
+*注：我们推荐您使用 md5 方式验证您的账户密码*
+
 ## 谁在使用？
 
 - [哲♂学资源站](https://aniki.top)
