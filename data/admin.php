@@ -33,7 +33,7 @@
 			die('-202');
 		
 		if ($_POST['user'] == $config['admin']['user']) {
-			if ($config['admin']['ismd5'] && md5($_POST['password'], false) == md5($config['admin']['password'], false)) {
+			if ($config['admin']['ismd5'] && md5($_POST['password'], false) == $config['admin']['password']) {
 				$_SESSION['isAdmin'] = true;
 				echo '0';
 				
