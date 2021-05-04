@@ -1,4 +1,4 @@
-﻿var messageFastPost = new mdui.Dialog('#fast_post');
+var messageFastPost = new mdui.Dialog('#fast_post');
 var drawer = new mdui.Drawer('#drawer', {'swipe': true});
 var jumpMsgPage = new mdui.Dialog('#jumpMsgPage');
 var jumpMsgFloor = new mdui.Dialog('#jumpMsgFloor');
@@ -7,7 +7,6 @@ $(document).pjax('a[target!=_blank]', '#mdui_text_container', {fragment:'#mdui_t
 
 $(document).on('pjax:send', function() {
 	$('#mdui_loading').removeClass('mdui-hidden');
-	mdui.$('#mdui_text_container').mutation();
     mdui.$.showOverlay();
     if ($(window).width() <= 1024){
     	if (drawer.isOpen()){
@@ -19,6 +18,7 @@ $(document).on('pjax:send', function() {
 $(document).on('pjax:complete', function() {
 	$('#mdui_loading').addClass('mdui-hidden');
     mdui.$.hideOverlay();
+    mdui.$('#mdui_text_container').mutation();
 });
 
 function submitFormFast() {
