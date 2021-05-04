@@ -25,41 +25,6 @@
 			<button onclick="adminLogin()" class="mdui-btn mdui-ripple mdui-text-color-theme-accent mdui-float-right">登录</button>
 		</div>
 	</div>
-	<script>
-		function adminLogin() {
-			$('#mdui_loading').removeClass('mdui-hidden');
-			mdui.$.showOverlay();
-			
-			mdui.$.ajax({
-				method : 'POST',
-				url : './data/admin.php',
-				data : {
-					type : 'login',
-					user : document.getElementById('admin_account').value,
-					password : document.getElementById('admin_password').value,
-					userhash : userHash
-				},
-				complete : function(xhr, textStatus) {
-					$('#mdui_loading').addClass('mdui-hidden');
-					mdui.$.hideOverlay();
-				},
-				success : function(data, textStatus, xhr) {
-					if (data == '0') {
-						mdui.alert('登录成功', '提示', function() {
-							document.getElementById('JumpLink').href = 'admin.php';
-							document.getElementById('JumpLink').click();
-						});
-					} else {
-						mdui.alert('登录失败，错误码：' + data, '提示');
-					}
-				},
-				error : function(xhr, textStatus) {
-					mdui.alert('登录失败', '提示');
-				}
-			});
-			
-		}
-	</script>
 	<br>
 <? } ?>
 
@@ -107,53 +72,6 @@
 	<div class="mdui-card-actions">
 		<? if ($admin['isAdmin']) { ?>
 			<button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent mdui-float-right" onclick="submitGlobalChanges()">提交修改</button>
-			<script>
-				function submitGlobalChanges() {
-					var obj = {
-						'sitename' : document.getElementById('siteName').value,
-						'sitekeywords' : document.getElementById('siteKeyw').value,
-						'sitedescription' : document.getElementById('siteDesc').value,
-						'siteauthor' : document.getElementById('siteAuth').value,
-						'sitenotice' : document.getElementById('siteNoti').value,
-						'siteabout' : document.getElementById('siteAbou').value,
-						'sitefooter' : document.getElementById('siteFoot').value
-					};
-					
-					$('#mdui_loading').removeClass('mdui-hidden');
-					mdui.$.showOverlay();
-					
-					mdui.$.ajax({
-						method : 'POST',
-						url : './data/admin.php',
-						data : {
-							type : 'global',
-							data : JSON.stringify(obj),
-							userhash : userHash
-						},
-						complete : function(xhr, textStatus) {
-							$('#mdui_loading').addClass('mdui-hidden');
-							mdui.$.hideOverlay();
-						},
-						success : function(data, textStatus, xhr) {
-							if (data == '0') {
-								mdui.alert('修改成功', '提示', function() {
-									document.getElementById('JumpLink').href = 'admin.php';
-									document.getElementById('JumpLink').click();
-								});
-								
-							} else {
-								mdui.alert('修改失败，错误码：' + data, '提示');
-
-							}
-						},
-						error : function(xhr, textStatus) {
-							mdui.alert('修改失败', '提示');
-							
-						}
-					});
-					
-				}
-			</script>
 		<? } else { ?>
 			<button class="mdui-btn mdui-ripple mdui-text-color-red mdui-float-right">您还没有登录</button>
 		<? } ?>
@@ -189,11 +107,38 @@
 	</div>
 </div>
 
+<? if ($_SESSION['isAdmin']){ ?>
+	<div class="mdui-dialog" id="editMedia">
+		<div class="mdui-dialog-title" id="mediaDialogTitle" style="padding-bottom:0">编辑媒体</div>
+		<div class="mdui-dialog-content" style="padding-top:4px;padding-bottom:0">
+			<div class="mdui-textfield">
+				<label class="mdui-textfield-label">视频 ID</label>
+				<input class="mdui-textfield-input" type="text" placeholder="视频的 ID，该值由系统自动生成" value="0" id="mediaDialogId" disabled/>
+			</div>
+			
+			<div class="mdui-textfield">
+				<label class="mdui-textfield-label">视频标题</label>
+				<input class="mdui-textfield-input" type="text" placeholder="视频的标题，必填" id="mediaDialogName" required/>
+				<div class="mdui-textfield-error">视频标题不能为空</div>
+			</div>
+			
+			<div class="mdui-textfield" style="padding-top:0">
+				<label class="mdui-textfield-label">视频地址</label>
+				<input class="mdui-textfield-input" type="text" placeholder="视频的 URL，可以是相对地址，必填" id="mediaDialogUrl" required/>
+				<div class="mdui-textfield-error">视频地址不能为空</div>
+			</div>
+		</div>
+		<div class="mdui-dialog-actions">
+			<button class="mdui-btn mdui-ripple" mdui-dialog-close>关闭</button>
+			<button class="mdui-btn mdui-ripple" mdui-dialog-confirm>保存</button>
+		</div>
+	</div>
+<? } ?>
+<script src="template/js/admin.js?202105041529"></script>
 <script>
 	var userHash = '<? echo $_SESSION['user']; ?>';
 </script>
 
 </div>
 <br>
-
 <? include "template/footer.php"; ?>
