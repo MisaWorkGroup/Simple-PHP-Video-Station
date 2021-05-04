@@ -5,7 +5,7 @@
 	require_once('preload.php');
 	session_start();
 	
-	$breakTime = $config['board']['breakTime'];
+	$breakTime = 1; // 考虑到编辑站点信息的频繁性，这里使用较短的提交间隔
 	
 	$lastSubTime = $_SESSION['lastSubTime'];
 	$_SESSION['lastSubTime'] = time();
@@ -16,7 +16,7 @@
 	if (empty($lastSubTime) || (time() - $lastSubTime) < $breakTime) 
 		die('-100');
 	
-	if (empty($_SESSION['user']))
+	if (empty($_SESSION['user']) || empty($_POST['userhash']))
 		die('-999');
 	
 	if (strlen($_SESSION['user']) !== $config['user']['hashLenth'])
@@ -97,10 +97,33 @@
 		if (!$_SESSION['isAdmin'])
 			die('-500');
 		
-		if (empty($_POST['id']) || empty($_POST['name']) || empty($_POST['url']) || empty($_POST['do']))
+		if (!isset($_POST['do']))
 			die('-999');
-		
-		if ($_POST['do'] == 1) {
+			
+		if ($_POST['do'] == 0) {
+			if (empty($_POST['mediaid']))
+				die('-999');
+			
+			$db->where('id', $_POST['mediaid']);
+			$mediaNow = $db->getOne('data');
+			
+			if ($mediaNow) {
+				$return = array(
+					'id'   => $mediaNow['id'],
+					'name' => $mediaNow['name'],
+					'url'  => $mediaNow['url']
+				);
+				
+				echo json_encode($return);
+			} else {
+				die('-50');
+				
+			}
+			
+		} elseif ($_POST['do'] == 1) {
+			if (empty($_POST['name']) || empty($_POST['url']))
+				die('-999');
+			
 			$value = Array(
 				'name' => htmlspecialchars(stripslashes(trim($_POST['name']))),
 				'url' => htmlspecialchars(stripslashes(trim($_POST['url'])))
@@ -111,15 +134,21 @@
 				echo 'failed';
 			
 		} elseif ($_POST['do'] == 2) {
-			$db->where('name', htmlspecialchars(stripslashes(trim($_POST['name']))));
-			if ($db->update('data', Array('url' => htmlspecialchars(stripslashes(trim($_POST['url']))))))
+			if (!isset($_POST['mediaid']) || empty($_POST['name']) || empty($_POST['url']))
+				die('-999');
+			
+			$db->where('id', htmlspecialchars(stripslashes(trim($_POST['mediaid']))));
+			if ($db->update('data', Array(
+				'name' => htmlspecialchars(stripslashes(trim($_POST['name']))),
+				'url'  => htmlspecialchars(stripslashes(trim($_POST['url']))))
+			))
 				echo 'success';
 			else
 				echo 'failed';
-			
 		}
 		
 	} else {
 		die();
+		 
 	}
 ?>
