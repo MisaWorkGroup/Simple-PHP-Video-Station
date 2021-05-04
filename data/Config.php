@@ -25,7 +25,7 @@
 	$config['player']['userPrefix'] = ''; // 设置弹幕 API 的用户标识前缀
 	
 	$config['admin']['user'] = 'admin'; // 设置管理后台的账号
-	$config['admin']['password'] = 'admin'; // 设置管理后台的密码
+	$config['admin']['password'] = 'admin'; // 设置管理后台的密码，如果下面的 `ismd5` 设置为了 true，请在此填写密码的 32 位 md5 值
 	$config['admin']['ismd5'] = false; // 如果你想在密码传递给服务器后使用 md5 核对，请设置为 true
 	
 	$global = array();
