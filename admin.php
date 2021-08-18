@@ -17,14 +17,14 @@
 	
 	$global['page']['title'] = '管理视频 - ' . $global['site']['name'];
 	
-	$admin['notice'] = $global['site']['notice'];
-	$admin['videos'] = $db->get('data');
-	$admin['about'] = $global['site']['about'];
-	$admin['footer'] = $global['site']['footer'];
-	$admin['name'] = $global['site']['name'];
-	$admin['keywords'] = $global['site']['keywords'];
+	$admin['notice']      = $global['site']['notice'];
+	$admin['videos']      = $db->get('data');
+	$admin['about']       = $global['site']['about'];
+	$admin['footer']      = $global['site']['footer'];
+	$admin['name']        = $global['site']['name'];
+	$admin['keywords']    = $global['site']['keywords'];
 	$admin['description'] = $global['site']['description'];
-	$admin['author'] = $global['site']['author'];
+	$admin['author']      = $global['site']['author'];
 	
-	include 'template/admin.php';
+	require_once('template/admin.php');
 ?>
