@@ -5,7 +5,7 @@
 		require_once("template/nomedia.php");
 		
 	} else {
-		require_once("template/mediaplayer.php)";
+		require_once("template/mediaplayer.php");
 		
 	}
 ?>
