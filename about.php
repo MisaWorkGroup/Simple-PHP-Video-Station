@@ -15,5 +15,5 @@
 	$global['page']['title'] = '关于本站点 - ' . $global['site']['name'];
 	$about = $global['site']['about'];
 	
-	include 'template/about.php';
+	require_once('template/about.php');
 ?>
