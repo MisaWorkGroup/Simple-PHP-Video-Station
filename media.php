@@ -45,5 +45,5 @@
 	
 	$global['page']['title'] = (!empty($media['error']) ? $media['error'] : $media['now']['title']) . ' - ' . $global['site']['name'];
 	
-	include 'template/media.php';
+	require_once('template/media.php');
 ?>
