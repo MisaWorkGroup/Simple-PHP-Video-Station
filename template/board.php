@@ -1,5 +1,5 @@
 <?php if (!defined('_IN_STATION_')) die('Access Denied');
-	include 'template/header.php'; ?>
+	require_once('template/header.php'); ?>
 <h1>留言板</h1>
 
 <? if (count($board['msgs']) > 0) {
@@ -58,4 +58,4 @@
 <center><button onclick="messageFastPost.open();" class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent" style="margin:12px 0 0 0;"><i class="mdui-icon material-icons">&#xe3c9;</i>&nbsp;立即留言</button></center>
 </div>
 <br>
-<? include "template/footer.php"; ?>
+<? require_once("template/footer.php"); ?>
