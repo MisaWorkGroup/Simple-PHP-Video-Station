@@ -1,5 +1,5 @@
 <?php if (!defined('_IN_STATION_')) die('Access Denied');
-	include 'template/header.php'; ?>
+	require_once('template/header.php'); ?>
 <h1>关于本站点</h1>
 
 <div class="mdui-card mdui-hoverable">
@@ -16,4 +16,4 @@
 
 </div> 
 <br>
-<? include "template/footer.php"; ?>
+<? require_once("template/footer.php"); ?>
