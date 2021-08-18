@@ -21,5 +21,5 @@
 	$db->pageLimit = $config['board']['msgPerPage'];
 	$board['msgs'] = $db->arraybuilder()->paginate('messages', $global['page']['num']);
 	
-	include 'template/board.php';
+	require_once('template/board.php');
 ?>
