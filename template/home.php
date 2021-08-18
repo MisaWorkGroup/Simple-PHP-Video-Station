@@ -1,5 +1,5 @@
 <?php if (!defined('_IN_STATION_')) die('Access Denied');
-	include 'template/header.php'; ?>
+	require_once('template/header.php'); ?>
 
 <h1 id="title"><? echo $global['site']['name']; ?></h1>
 
@@ -39,4 +39,4 @@
 
 </div>
 <br>
-<? include "template/footer.php"; ?>
+<? require_once("template/footer.php"); ?>
