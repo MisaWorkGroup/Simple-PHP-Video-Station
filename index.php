@@ -18,5 +18,5 @@
 	$home['notice'] = $global['site']['notice'];
 	$home['videos'] = $db->get('data');
 	
-	include 'template/home.php';
+	require_once('template/home.php');
 ?>
