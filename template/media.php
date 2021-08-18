@@ -1,15 +1,15 @@
 <?php if (!defined('_IN_STATION_')) die('Access Denied');
-	include 'template/header.php';
+	require_once('template/header.php');
 	
 	if (!empty($media['error'])) {
-		include "template/nomedia.php";
+		require_once("template/nomedia.php");
 		
 	} else {
-		include "template/mediaplayer.php";
+		require_once("template/mediaplayer.php)";
 		
 	}
 ?>
 </div>
 <br>
 
-<? include "template/footer.php"; ?>
+<? require_once("template/footer.php"); ?>
