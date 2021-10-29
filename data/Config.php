@@ -21,8 +21,8 @@
 	$config['user']['hashEffectiveTime'] = 120; // 设置用户随机标识码的有效期，单位为秒
 	
 	$config['player']['damakuAPI'] = ''; // 设置 DPlayer 的弹幕 API，不想启用弹幕功能请留空。关于 DPlayer 详见 https://github.com/DIYgod/DPlayer
-	$config['player']['damakuPrefix'] = ''; // 设置弹幕 API 的视频标识前缀
-	$config['player']['userPrefix'] = ''; // 设置弹幕 API 的用户标识前缀
+	$config['player']['damakuPrefix'] = ''; // 设置弹幕 API 的视频标识前缀，不要超过 6 个字符。
+	$config['player']['userPrefix'] = ''; // 设置弹幕 API 的用户标识前缀，不要超过 6 个字符。
 	
 	$config['admin']['user'] = 'admin'; // 设置管理后台的账号
 	$config['admin']['password'] = '21232f297a57a5a743894a0e4a801fc3'; // 设置管理后台的密码，如果下面的 `ismd5` 设置为了 true，请在此填写密码的 32 位 md5 值
