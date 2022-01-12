@@ -40,4 +40,5 @@ Password : admin
 - [ThingEngineer/PHP-MySQLi-Database-Class](https://github.com/ThingEngineer/PHP-MySQLi-Database-Class)
 - [zdhxiong/mdui](https://github.com/zdhxiong/mdui)
 - [erusev/parsedown](https://github.com/erusev/parsedown)
-- [gravatar.bytecho.net（国内 Gravatar 镜像）](https://gravatar.bytecho.net/)
+- [//dn-qiniu-avatar.qbox.me/avatar（位于中国大陆的 Gravatar **镜像**，由 *七牛云* 提供服务。）](https://dn-qiniu-avatar.qbox.me/avatar/)
+> 在使用服务之前您需要确定 *[七牛云](https://www.qiniu.com/)* 的**隐私政策**。如果当地法律不允许您使用当地以外的服务器，请自行修改 /template/board.php 下[第 *9* 行](https://github.com/MisaWorkGroup/Simple-PHP-Video-Station/blob/main/template/board.php#L9)的 https://dn-qiniu-avatar.qbox.me/avatar/ 修改为其他的服务商。例如 https://gravatar.com/avatar/ 。
