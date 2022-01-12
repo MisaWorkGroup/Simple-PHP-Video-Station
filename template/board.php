@@ -6,7 +6,7 @@
 	for ($i = 0; $i < count($board['msgs']); $i++) { ?>
 		<div class="mdui-card mdui-hoverable" id="message_<? echo $board['msgs'][$i]['id']; ?>">
 			<div class="mdui-card-header">
-				<img class="mdui-card-header-avatar" src="<? echo "https://dn-qiniu-avatar.qbox.me/avatar/" . md5(strtolower(trim($board['msgs'][$i]['email']))) . "?s=100"; ?>"/>
+				<img class="mdui-card-header-avatar" src="<? echo "//dn-qiniu-avatar.qbox.me/avatar/" . md5(strtolower(trim($board['msgs'][$i]['email']))) . "?s=100"; ?>"/>
 				<div class="mdui-card-header-title mdui-typo">
 					<? if (!empty($board['msgs'][$i]['website']) && $board['msgs'][$i]['state'] > 0) { ?>
 						<a href="<? echo $board['msgs'][$i]['website'];?>" target="_blank">
