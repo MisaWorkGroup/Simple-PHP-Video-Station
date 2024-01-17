@@ -1,6 +1,12 @@
 # Simple-PHP-Video-Station
 一个简单的、基于 PHP 和 MySQL 的视频点播站。 A simple video station based on PHP and MySQL.
 
+## 已经弃坑嘞
+
+我已经有一两年没有写 PHP 了，基本上也已经忘光了...
+
+所以这个项目就先归档了，等一个有缘人。
+
 ## 特点
 
 - 仅 655K 主体文件和 3 张数据表
